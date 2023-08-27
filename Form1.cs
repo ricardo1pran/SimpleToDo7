@@ -418,7 +418,9 @@ namespace SimpleToDo7
 
         private void preferencesToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Features Coming Soon!", "Coming Soon!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            // MessageBox.Show("Features Coming Soon!", "Coming Soon!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            var prefForm = new Preferences();
+            prefForm.Show();
         }
 
         private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
