@@ -13,18 +13,18 @@ I'm currently having nostalgic moments by installing old operating systems in a 
 
 ## Features
 
-I call a task in this application as a "ToDo". Anything mentioned as "ToDo" inside the app, means the task. There are features that's already exist in ToDo Vista tho, so I'll make the features that only available in Simple ToDo7 as bold. See the list of the features below:
+I call a task in this application as a "ToDo". Anything mentioned as "ToDo" inside the app, means the task. There are features that's already exist in ToDo Vista tho, so I'll make the features that only available in Simple ToDo7 as italic. See the list of the features below:
 
 - Add ToDo
 - Complete ToDo
 - Delete ToDo
-- <b>Edit existing ToDo</b>
+- <i>Edit existing ToDo</i>
 - Save ToDo list to a .txt file
-- <b>Clear existing ToDo list</b>
-- <b>Move ToDo items in the list up and down</b>
-- <b>A simple How To Guide in Help context menu</b>
-- <b>See completed ToDo as separate list</b> (upcoming feature!)
-- <b>Set preferences</b> (upcoming feature!)
+- <i>Clear existing ToDo list</i>
+- <i>Move ToDo items in the list up and down</i>
+- <i>A simple How To Guide in Help context menu</i>
+- <i>See completed ToDo as separate list</i> (upcoming feature!)
+- <i>Set in-app preferences</i> (upcoming feature in v.1.1.0!)
 
 <i>The preferences will be able to set some options such as toggle Skip Completed ToDo in Txt, toggle Set Completed ToDo always on buttom, etc.</i>
 
