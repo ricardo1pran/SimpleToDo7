@@ -17,6 +17,26 @@ namespace SimpleToDo7
             InitializeComponent();
         }
 
+        private bool checkAlerts()
+        {
+            return Properties.Settings.Default.showToDoAlerts;
+        }
+
+        private bool checkEditComplete()
+        {
+            return Properties.Settings.Default.allowEditCompleted;
+        }
+
+        private bool checkExitConfirm()
+        {
+            return Properties.Settings.Default.showExitConfirm;
+        }
+
+        private bool checkNoHeader()
+        {
+            return Properties.Settings.Default.noHeaderTXT;
+        }
+
         private void addToDo()
         {
             var todotext = textBox1.Text;
@@ -83,7 +103,8 @@ namespace SimpleToDo7
 
             if (textBox1.Text.Equals(""))
             {
-                MessageBox.Show("Please insert ToDo first", "Error: ToDo empty", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                if(checkAlerts())
+                    MessageBox.Show("Please insert ToDo first", "Error: ToDo empty", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
@@ -165,7 +186,8 @@ namespace SimpleToDo7
         {
             if (listBox1.Items.Count <= 0)
             {
-                MessageBox.Show("There are no ToDo(s) yet!", "Nothing to clear!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                if(checkAlerts())
+                    MessageBox.Show("There are no ToDo(s) yet!", "Nothing to clear!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
             
@@ -190,10 +212,11 @@ namespace SimpleToDo7
         {
             if (listBox1.Items.Count == 0)
             {
-                MessageBox.Show(this, "The ToDo List is Empty..\nNothing to save!", "Oops!",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Error
-                );
+                if(checkAlerts())
+                    MessageBox.Show(this, "The ToDo List is Empty..\nNothing to save!", "Oops!",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Error
+                    );
                 return;
             }
             toolStripStatusLabel1.Text = "Saving ToDo to .txt ... ";
@@ -207,7 +230,8 @@ namespace SimpleToDo7
                 var separator = "----------------------------------------";
                 var header = "----- Simple ToDo7 Saved ToDo List -----";
                 toolStripProgressBar1.Value = 50;
-                File.WriteAllText(saveFileDialog1.FileName, separator + enter + header + enter + separator + enter + enter);
+                if(checkNoHeader())
+                    File.WriteAllText(saveFileDialog1.FileName, separator + enter + header + enter + separator + enter + enter);
                 toolStripProgressBar1.Value = 75;
                 foreach (var item in listBox1.Items)
                 {
@@ -226,10 +250,11 @@ namespace SimpleToDo7
         {
             if (listBox1.SelectedItem == null)
             {
-                MessageBox.Show(this, "Please select a ToDo to be deleted!", "Warning",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Warning
-                );
+                if(checkAlerts())
+                    MessageBox.Show(this, "Please select a ToDo to be deleted!", "Warning",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Warning
+                    );
                 return;
             }
 
@@ -241,9 +266,10 @@ namespace SimpleToDo7
             if (ask.Equals(DialogResult.Yes))
             {
                 listBox1.Items.RemoveAt(listBox1.SelectedIndex);
-                MessageBox.Show(this, "ToDo Deleted!", "Success",
-                    MessageBoxButtons.OK, MessageBoxIcon.Information
-                );
+                if(checkAlerts())
+                    MessageBox.Show(this, "ToDo Deleted!", "Success",
+                        MessageBoxButtons.OK, MessageBoxIcon.Information
+                    );
             }
         }
 
@@ -251,27 +277,30 @@ namespace SimpleToDo7
         {
             if (listBox1.SelectedItem == null)
             {
-                MessageBox.Show(this, "Select a Todo first!", "Warning",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Warning
-                );
+                if(checkAlerts())
+                    MessageBox.Show(this, "Select a Todo first!", "Warning",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Warning
+                    );
                 return;
             }
 
             if (listBox1.Items[listBox1.SelectedIndex].ToString().Contains("Completed!"))
             {
-                MessageBox.Show(this, "Oops! ToDo is already completed!", "Success",
-                    MessageBoxButtons.OK, MessageBoxIcon.Warning
-                );
+                if(checkAlerts())
+                    MessageBox.Show(this, "Oops! ToDo is already completed!", "Success",
+                        MessageBoxButtons.OK, MessageBoxIcon.Warning
+                    );
                 return;
             }
             var selectedTodo = listBox1.Items[listBox1.SelectedIndex].ToString();
             var completedTodo = "(" + selectedTodo + ") --Completed!";
             listBox1.Items[listBox1.SelectedIndex] = completedTodo;
             
-            MessageBox.Show(this, "ToDo Completed!", "Success",
-                MessageBoxButtons.OK, MessageBoxIcon.Information
-            );
+            if(checkAlerts())
+                MessageBox.Show(this, "ToDo Completed!", "Success",
+                    MessageBoxButtons.OK, MessageBoxIcon.Information
+                );
         }
 
         private void button6_Click(object sender, EventArgs e)
@@ -290,20 +319,23 @@ namespace SimpleToDo7
 
             if (listBox1.SelectedItem == null)
             {
-                MessageBox.Show(this, "Select a Todo to edit!", "Warning",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Warning
-                );
+                if(checkAlerts())
+                    MessageBox.Show(this, "Select a Todo to edit!", "Warning",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Warning
+                    );
                 return;
             }
 
-            if (listBox1.Items[listBox1.SelectedIndex].ToString().Contains("Completed!"))
-            {
-                MessageBox.Show(this, "Oops! ToDo is already completed and can't be edited!", "Can't edit completed ToDo",
-                    MessageBoxButtons.OK, MessageBoxIcon.Warning
-                );
-                return;
-            }
+            if(!checkEditComplete()) // if AllowEditComplete false (default)
+                if (listBox1.Items[listBox1.SelectedIndex].ToString().Contains("Completed!"))
+                {
+                    if(checkAlerts())
+                        MessageBox.Show(this, "Oops! ToDo is already completed and can't be edited!", "Can't edit completed ToDo",
+                            MessageBoxButtons.OK, MessageBoxIcon.Warning
+                        );
+                    return;
+                }
 
             // process selected data
             selectedIndex = listBox1.SelectedIndex;
@@ -348,9 +380,10 @@ namespace SimpleToDo7
             // can't move if already on top
             if (currPosition == 0)
             {
-                MessageBox.Show(this, "Oops! ToDo is already on Top!", "Can't move ToDo",
-                    MessageBoxButtons.OK, MessageBoxIcon.Warning
-                );
+                if(checkAlerts())
+                    MessageBox.Show(this, "Oops! ToDo is already on Top!", "Can't move ToDo",
+                        MessageBoxButtons.OK, MessageBoxIcon.Warning
+                    );
                 return;
             }
 
@@ -377,9 +410,10 @@ namespace SimpleToDo7
             // can't move if already on top
             if (currPosition == listBox1.Items.Count-1)
             {
-                MessageBox.Show(this, "Oops! ToDo is already on Buttom!", "Can't move ToDo",
-                    MessageBoxButtons.OK, MessageBoxIcon.Warning
-                );
+                if(checkAlerts())
+                    MessageBox.Show(this, "Oops! ToDo is already on Buttom!", "Can't move ToDo",
+                        MessageBoxButtons.OK, MessageBoxIcon.Warning
+                    );
                 return;
             }
 
@@ -400,14 +434,21 @@ namespace SimpleToDo7
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
-            var x = MessageBox.Show("All ToDos will be lost after you exit!\nAre you sure you want to exit?", "Exit Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if (x.Equals(DialogResult.Yes))
+            if (checkExitConfirm())
             {
-                return;
+                var x = MessageBox.Show("All ToDos will be lost after you exit!\nAre you sure you want to exit?", "Exit Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (x.Equals(DialogResult.Yes))
+                {
+                    return;
+                }
+                else
+                {
+                    e.Cancel = true;
+                }
             }
             else
             {
-                e.Cancel = true;
+                return;
             }
         }
 

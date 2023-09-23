@@ -18,6 +18,7 @@ namespace SimpleToDo7
 
         private void button1_Click(object sender, EventArgs e)
         {
+            Properties.Settings.Default.Save();
             this.Close();
         }
 
@@ -47,5 +48,15 @@ namespace SimpleToDo7
         {
             Properties.Settings.Default.noHeaderTXT = checkBox5.Checked;
         }
+
+        private void Preferences_Load(object sender, EventArgs e)
+        {
+            checkBox1.Checked = Properties.Settings.Default.showToDoAlerts;
+            checkBox2.Checked = Properties.Settings.Default.showExitConfirm;
+            checkBox3.Checked = Properties.Settings.Default.moveCompletedToDos;
+            checkBox4.Checked = Properties.Settings.Default.allowEditCompleted;
+            checkBox5.Checked = Properties.Settings.Default.noHeaderTXT;
+        }
+
     }
 }
