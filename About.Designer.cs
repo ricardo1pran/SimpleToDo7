@@ -93,7 +93,7 @@
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(40, 13);
             this.label4.TabIndex = 5;
-            this.label4.Text = "v.1.0.0";
+            this.label4.Text = "v.1.1.0";
             // 
             // About
             // 
