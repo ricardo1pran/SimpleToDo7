@@ -230,7 +230,7 @@ namespace SimpleToDo7
                 var separator = "----------------------------------------";
                 var header = "----- Simple ToDo7 Saved ToDo List -----";
                 toolStripProgressBar1.Value = 50;
-                if(checkNoHeader())
+                if(!checkNoHeader())
                     File.WriteAllText(saveFileDialog1.FileName, separator + enter + header + enter + separator + enter + enter);
                 toolStripProgressBar1.Value = 75;
                 foreach (var item in listBox1.Items)
