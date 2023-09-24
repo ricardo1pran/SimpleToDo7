@@ -23,25 +23,33 @@ I call a task in this application as a "ToDo". Anything mentioned as "ToDo" insi
 - <i>Clear existing ToDo list</i>
 - <i>Move ToDo items in the list up and down</i>
 - <i>A simple How To Guide in Help context menu</i>
-- <i>See completed ToDo as separate list</i> (upcoming feature!)
-- <i>Set in-app preferences</i> (upcoming feature in v.1.1.0!)
+- <i>See completed ToDo as separate list</i> (planned feature!)
+- <i>Set in-app preferences</i> (using WinForms Settings feature)
+- <i>Aero glass integration</i> (Planned feature! But still figuring out for WinForms, instructions online are for WPF)
 
-<i>The preferences will be able to set some options such as toggle Skip Completed ToDo in Txt, toggle Set Completed ToDo always on buttom, etc.</i>
+<i>Preferences Features:</i>
+- Show/Hide ToDos related alerts (such as alerts for completing, deleting ToDos, etc.)
+- Show/Hide exit confirmation (careful!)
+- Auto Move completed ToDo <i>(this is upcoming planned feature, needs "Completed ToDos" form to be done first)</i>
+- Allow uncomplete / Edit completed ToDos (by default, completed ToDos can't be edited, to prevent the task being incomplete again) (editing completed ToDos means setting them as an incomplete (active) ToDo and can be re-completed again).
 
 ## Technical Requirements
 
 There are no specific requirements for this application, I believe it will run on Windows 7 and newer machines, so I'll just mention the tools I used to create this application.
 
-- Microsoft Visual C# Express 2010
-- Microsoft .NET 4.5
+- Microsoft Visual C# Express 2010 (WinForms)
+- Microsoft .NET 4.0 - 4.5
 
 ## Application Support and Updates
 
-I'll still be in Windows 7 operating system until September 2023, so expect the "upcoming" features to be done before September 30th. After that I'll move to Windows 8.1, and maybe create a newer modern ToDo application.
+I'll still be in Windows 7 operating system until September 2023, so expect the "upcoming" features to be done before September 30th. After that I'll move to Windows 8.1, and maybe create a newer modern ToDo application, or keep maintaining this ToDo in Windows 8.1 environtment.
+
+### Update Sep 24th, 2023
+All upcoming features that is planned will be implemented soon but no exact date (expect late 2023 - early 2024). And because my primary OS is Linux and I'm enjoying myself creating ToDo apps, I will try to create the Linux version of this using Qt or whatever I decide later.
 
 ## Usage
 
-As stated on the license I chose. Plus you're free to contact me [here](contact@ricardogunawan.com) if you think you want to use my apps for other purposes. Usage for study purposes are always welcome.
+As stated on the license I chose. Plus you're free to contact me [here](contact@ricardogunawan.com) if you think you want to use my apps for other purposes, or even want to help me making this app better :) . Usage for study purposes and project starters are always welcome.
 
 ## Screenshots
 
@@ -69,5 +77,20 @@ As stated on the license I chose. Plus you're free to contact me [here](contact@
 ![todo](images/6cls.png)<br/>
 <i>Simple ToDo7 Clear ToDo (confirmation)</i>
 
-![todo](images/about.png)<br/>
-<i>Simple ToDo7 v.1.0.0 New Modern and Clean About (compared to ToDo Vista)</i>
+![todo](images/pref1.png)<br/>
+<i>Simple ToDo7 Preferences "General" tab
+
+![todo](images/pref2.png)<br/>
+<i>Simple ToDo7 Preferences "ToDos" tab
+
+![todo](images/pref3.png)<br/>
+<i>Simple ToDo7 Preferences "Export" tab
+
+![todo](images/about2.png)<br/>
+<i>Simple ToDo7 v.1.1.0 New Modern and Clean About (compared to ToDo Vista)</i>
+
+## Changelogs
+### v.1.1.0
+Add some preferences. Now preferences could saved permanently. First time we have a Release!
+### v.1.0.0
+Initialize SimpleToDo7
