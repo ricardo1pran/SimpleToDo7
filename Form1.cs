@@ -386,6 +386,14 @@ namespace SimpleToDo7
                     );
                 return;
             }
+            else if (currPosition == -1)
+            {
+                if (checkAlerts())
+                    MessageBox.Show(this, "Oops! Select ToDo First!", "Can't move ToDo",
+                        MessageBoxButtons.OK, MessageBoxIcon.Warning
+                    );
+                return;
+            }
 
             var tempVal = listBox1.Items[currPosition];
 
@@ -412,6 +420,14 @@ namespace SimpleToDo7
             {
                 if(checkAlerts())
                     MessageBox.Show(this, "Oops! ToDo is already on Buttom!", "Can't move ToDo",
+                        MessageBoxButtons.OK, MessageBoxIcon.Warning
+                    );
+                return;
+            }
+            else if (currPosition == -1)
+            {
+                if (checkAlerts())
+                    MessageBox.Show(this, "Oops! Select ToDo First!", "Can't move ToDo",
                         MessageBoxButtons.OK, MessageBoxIcon.Warning
                     );
                 return;
