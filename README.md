@@ -90,6 +90,8 @@ As stated on the license I chose. Plus you're free to contact me [here](contact@
 <i>Simple ToDo7 v.1.1.0 New Modern and Clean About (compared to ToDo Vista)</i>
 
 ## Changelogs
+### v.1.2.0
+Add Remove Completed ToDo(s), fixed focus to textbox after adding or editing ToDo(s).
 ### v.1.1.0
 Add some preferences. Now preferences could saved permanently. First time we have a Release!
 ### v.1.0.0
