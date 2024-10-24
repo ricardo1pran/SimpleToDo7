@@ -29,8 +29,8 @@
     <ProductName>SimpleToDo7</ProductName>
     <PublisherName>Ricardo1pran</PublisherName>
     <OpenBrowserOnPublish>false</OpenBrowserOnPublish>
-    <ApplicationRevision>15</ApplicationRevision>
-    <ApplicationVersion>1.1.0.%2a</ApplicationVersion>
+    <ApplicationRevision>1</ApplicationRevision>
+    <ApplicationVersion>1.2.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
     <BootstrapperEnabled>true</BootstrapperEnabled>
@@ -55,10 +55,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <ManifestCertificateThumbprint>9F8F29A26AAD3D93152CA46DCB475CC7FB0D97B8</ManifestCertificateThumbprint>
+    <ManifestCertificateThumbprint>451E7F64CA3EB3104EC1BB111B449D1155092820</ManifestCertificateThumbprint>
   </PropertyGroup>
   <PropertyGroup>
-    <ManifestKeyFile>SimpleToDo7_TemporaryKey.pfx</ManifestKeyFile>
+    <ManifestKeyFile>SimpleToDo7_1_TemporaryKey.pfx</ManifestKeyFile>
   </PropertyGroup>
   <PropertyGroup>
     <GenerateManifests>true</GenerateManifests>
@@ -135,6 +135,7 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="SimpleToDo7_1_TemporaryKey.pfx" />
     <None Include="SimpleToDo7_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>

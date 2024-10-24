@@ -74,7 +74,7 @@
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(31, 13);
             this.label3.TabIndex = 3;
-            this.label3.Text = "2023";
+            this.label3.Text = "2024";
             // 
             // pictureBox1
             // 
@@ -93,7 +93,7 @@
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(40, 13);
             this.label4.TabIndex = 5;
-            this.label4.Text = "v.1.1.0";
+            this.label4.Text = "v.1.2.0";
             // 
             // About
             // 

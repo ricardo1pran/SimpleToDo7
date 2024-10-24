@@ -74,6 +74,7 @@ namespace SimpleToDo7
         private void resetTextbox1()
         {
             textBox1.Text = "";
+            textBox1.Focus();
         }
 
         private void resetStatusStrip()
@@ -104,7 +105,7 @@ namespace SimpleToDo7
             if (textBox1.Text.Equals(""))
             {
                 if(checkAlerts())
-                    MessageBox.Show("Please insert ToDo first", "Error: ToDo empty", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Please type ToDo first", "Error: ToDo empty", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
@@ -493,6 +494,29 @@ namespace SimpleToDo7
         private void toolStripMenuItem1_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        private void clearCompletedToDosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (listBox1.Items.Count <= 0)
+            {
+                if (checkAlerts())
+                    MessageBox.Show("There are no ToDo(s) yet!", "Nothing to clear!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            var ask = MessageBox.Show("Are you sure you want to clear all completed ToDos?\nThis action can't be undoned!", "Clear Completed Items", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (ask.Equals(DialogResult.Yes))
+            {
+                // backward iteration, so index won't be disturbed
+                for (int i = listBox1.Items.Count - 1; i >= 0; i--)
+                {
+                    if (listBox1.Items[i].ToString().Contains(") --Completed!"))
+                    {
+                        listBox1.Items.RemoveAt(i);
+                    }
+                }
+            }
         }
 
        
