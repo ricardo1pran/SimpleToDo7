@@ -23,7 +23,7 @@ I call a task in this application as a "ToDo". Anything mentioned as "ToDo" insi
 - <i>Clear existing ToDo list</i>
 - <i>Move ToDo items in the list up and down</i>
 - <i>A simple How To Guide in Help context menu</i>
-- <i>See completed ToDo as separate list</i> (planned feature!)
+- <i>~~See completed ToDo as separate list~~</i> (Feature implemented in MetroToDo!)
 - <i>Set in-app preferences</i> (using WinForms Settings feature)
 - <i>Aero glass integration</i> (Planned feature! But still figuring out for WinForms, instructions online are for WPF)
 
@@ -90,6 +90,8 @@ As stated on the license I chose. Plus you're free to contact me [here](contact@
 <i>Simple ToDo7 v.1.1.0 New Modern and Clean About (compared to ToDo Vista)</i>
 
 ## Changelogs
+### v.1.2.0.1
+Add Enter key event on TextBox
 ### v.1.2.0
 Add Remove Completed ToDo(s), fixed focus to textbox after adding or editing ToDo(s).
 ### v.1.1.0

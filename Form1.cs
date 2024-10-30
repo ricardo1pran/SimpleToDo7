@@ -39,6 +39,13 @@ namespace SimpleToDo7
 
         private void addToDo()
         {
+            if (textBox1.Text.Equals(""))
+            {
+                if (checkAlerts())
+                    MessageBox.Show("Please type ToDo first", "Error: ToDo empty", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
             var todotext = textBox1.Text;
             listBox1.Items.Add(todotext);
             resetTextbox1();
@@ -99,13 +106,6 @@ namespace SimpleToDo7
 
                 // reset all button states
                 resetAfterEdit();
-                return;
-            }
-
-            if (textBox1.Text.Equals(""))
-            {
-                if(checkAlerts())
-                    MessageBox.Show("Please type ToDo first", "Error: ToDo empty", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
@@ -516,6 +516,16 @@ namespace SimpleToDo7
                         listBox1.Items.RemoveAt(i);
                     }
                 }
+            }
+        }
+
+        private void textBox1_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                addToDo();
+                e.Handled = true;
+                e.SuppressKeyPress = true;
             }
         }
 

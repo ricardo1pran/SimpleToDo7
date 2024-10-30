@@ -38,6 +38,7 @@
             this.toDoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.featuresComingSoonToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.clearAllToDosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.clearCompletedToDosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.preferencesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -67,7 +68,6 @@
             this.editToDoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.moveDownToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
-            this.clearCompletedToDosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -144,6 +144,13 @@
             this.clearAllToDosToolStripMenuItem.Click += new System.EventHandler(this.clearAllToDosToolStripMenuItem_Click);
             this.clearAllToDosToolStripMenuItem.MouseEnter += new System.EventHandler(this.clearAllToDosToolStripMenuItem_MouseEnter);
             this.clearAllToDosToolStripMenuItem.MouseLeave += new System.EventHandler(this.clearAllToDosToolStripMenuItem_MouseLeave);
+            // 
+            // clearCompletedToDosToolStripMenuItem
+            // 
+            this.clearCompletedToDosToolStripMenuItem.Name = "clearCompletedToDosToolStripMenuItem";
+            this.clearCompletedToDosToolStripMenuItem.Size = new System.Drawing.Size(208, 22);
+            this.clearCompletedToDosToolStripMenuItem.Text = "Clear Completed ToDo(s)";
+            this.clearCompletedToDosToolStripMenuItem.Click += new System.EventHandler(this.clearCompletedToDosToolStripMenuItem_Click);
             // 
             // toolStripSeparator2
             // 
@@ -229,6 +236,7 @@
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(226, 20);
             this.textBox1.TabIndex = 1;
+            this.textBox1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox1_KeyDown);
             // 
             // label1
             // 
@@ -400,13 +408,6 @@
             // 
             this.saveFileDialog1.FileName = "ToDo7 - My ToDo List.txt";
             this.saveFileDialog1.Filter = "*.txt|All files";
-            // 
-            // clearCompletedToDosToolStripMenuItem
-            // 
-            this.clearCompletedToDosToolStripMenuItem.Name = "clearCompletedToDosToolStripMenuItem";
-            this.clearCompletedToDosToolStripMenuItem.Size = new System.Drawing.Size(208, 22);
-            this.clearCompletedToDosToolStripMenuItem.Text = "Clear Completed ToDo(s)";
-            this.clearCompletedToDosToolStripMenuItem.Click += new System.EventHandler(this.clearCompletedToDosToolStripMenuItem_Click);
             // 
             // Form1
             // 
